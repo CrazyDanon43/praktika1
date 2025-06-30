@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from routing import router
+from src.routing.Healthcheck_rout import router
 
 app = FastAPI(openai_url="/core/openai.json", docs_url="/core/docs")
 

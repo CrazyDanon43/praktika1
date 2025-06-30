@@ -1,32 +1,35 @@
 from typing import List
-from fastapi import APIRouter, Depends
-
+from fastapi import APIRouter, Depends, HTTPException
 from src.depends import get_health_service
-from src.models import Healthcheck_mod
-from src.services import Healthcheck_serv
+from src.models.Healthcheck_mod import HealthStatus
+from src.services.Healthcheck_serv import HealthHealth
 
-router = APIRouter(prefix="/HEALTH", tags=["HEALTH"])
+router = APIRouter(prefix="/health", tags=["Health"])
+
+@router.get("/healthcheck", response_model=HealthStatus)
+async def healthcheck():
+    return {"status": True}
 
 @router.get(
     "",
-    responses={400:{"desvription":"Bad request"}},
-    response_model=List[Healthcheck_mod],
-    description="Получение листинга всех статусов здоровья",
+    responses={400: {"description": "Bad request"}},
+    response_model=List[HealthStatus],
+    description="Получение листинга всех статусов здоровья"
 )
 async def get_all_health(
-        health_service: Healthcheck_serv = Depends(get_health_service),
-) -> List[Healthcheck_mod]:
+    health_service: HealthHealth = Depends(get_health_service)
+) -> List[HealthStatus]:
     health = health_service.get_health()
-    return
+    return health
 
 @router.post(
     "",
-    responses={400:{"description":"Bad request"}},
-    response_model=Healthcheck_mod,
+    responses={400: {"description": "Bad request"}},
+    response_model=HealthStatus,
     description="Создание статуса здоровья"
 )
-async def get_all_health(
-    health_service: Healthcheck_serv = Depends(get_health_service),
-) -> Healthcheck_mod:
+async def create_health(
+    health_service: HealthHealth = Depends(get_health_service)
+) -> HealthStatus:
     health = health_service.create_health()
     return health
