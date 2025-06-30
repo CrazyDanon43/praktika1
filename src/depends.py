@@ -1,5 +1,5 @@
-from src.repositories.Healthcheck_rep import HealthRepository
-from src.services.Healthcheck_serv import HealthHealth
+from repositories.Healthcheck_rep import HealthRepository
+from services.Healthcheck_serv import HealthHealth
 
 health_repository = HealthRepository()
 
