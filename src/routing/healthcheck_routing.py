@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from src.services.healthcheck_services import healthstatus
+from services.healthcheck_services import healthstatus
 
 router = APIRouter(prefix="/health", tags=["Health"])
 
