@@ -1,16 +1,9 @@
-from typing import List
+from pydantic import BaseModel
 
-from src.repositories.Healthcheck_rep import HealthRepository
-from src.models.Healthcheck_mod import HealthStatus
 
-class HealthHealth:
-    def __init__(self, repository: HealthRepository) -> None:
-        self.repository = repository
+class healthstatus(BaseModel):
+    status: bool
 
-    def get_health(self) -> List[HealthStatus]:
-        result = self.repository.get_health()
-        return result
-
-    def create_health(self) -> HealthStatus:
-        result = self.repository.create_health()
-        return result
+class healthchecker:
+    def __call__(self) -> bool:
+        return True
