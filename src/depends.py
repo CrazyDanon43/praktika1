@@ -1,9 +1,7 @@
-from repositories.Healthcheck_rep import HealthRepository
-from services.Healthcheck_serv import HealthHealth
+from services.healthcheck_services import healthchecker
+from src.services.healthcheck_services import healthstatus
 
-health_repository = HealthRepository()
+health_service = healthstatus(healthchecker)
 
-health_service = HealthHealth(HealthRepository)
-
-def get_health_service() -> HealthHealth:
+def get_health_service() -> healthchecker:
    return health_service
