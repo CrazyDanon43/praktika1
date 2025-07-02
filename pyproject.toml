@@ -3,22 +3,91 @@ name = "praktika"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "CrazyDanon43",email = "daniilsh43@mail.ru"}
+    {name = "CrazyDanon43", email = "daniilsh43@mail.ru"}
 ]
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "fastapi (>=0.115.14,<0.116.0)",
-    "pytest (>=8.4.1,<9.0.0)",
-    "datetime (>=5.5,<6.0)",
-    "uvicorn (>=0.35.0,<0.36.0)",
+    "fastapi>=0.115.14,<0.116.0",
+    "uvicorn[standard]>=0.35.0,<0.36.0",
 ]
 
-
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = ["poetry-core>=2.0.0"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.poetry.group.test.dependencies]
-pytest = "^8.4.1"
+[project.optional-dependencies]
+test = ["pytest>=8.4.1,<9.0.0"]
+lint = [
+    "ruff>=0.12.1,<0.13.0",
+    "black>=25.1.0,<26.0.0",
+    "mypy>=1.16.1,<2.0.0"
+]
 
+[tool.ruff]
+task-tags = ["TODO"]
+
+select = [
+    "E", "W",
+    "F",
+    "I",
+    "D",
+    "UP",
+    "N",
+    "YTT",
+    "ANN",
+    "S",
+    "BLE",
+    "FBT",
+    "B",
+    "A",
+    "C4",
+    "T10",
+    "EM",
+    "ISC",
+    "ICN",
+    "T20",
+    "PT",
+    "Q",
+    "RET",
+    "SIM",
+    "TID",
+    "DTZ",
+    "ERA",
+    "PD",
+    "PGH",
+    "PLC", "PLE", "PLR", "PLW",
+    "PIE",
+    "RUF",
+]
+
+ignore = [
+    "PLR0913",
+    "ERA001",
+    "ANN204",
+    "C408",
+    "B008",
+    "RUF012",
+    "D100",
+    "D101",
+    "D102",
+    "D103",
+    "D104",
+    "D105",
+    "D106",
+    "D107",
+    "D200",
+    "D212",
+    "ANN401",
+    "ICN001",
+    "UP035",
+    "BLE001",
+    "S608",
+    "PLC1901",
+    "S311",
+    "S603",
+    "S602",
+    "S301",
+    "A003",
+    "D415"
+]
