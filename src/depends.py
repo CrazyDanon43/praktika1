@@ -1,5 +1,4 @@
-from services.healthcheck_services import HealthCheckServices
-from models.healthcheck_models import HealthStatus
+from src.services.healthcheck_services import HealthCheckServices
 
 health_service = HealthCheckServices()
 
