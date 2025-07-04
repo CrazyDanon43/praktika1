@@ -91,3 +91,9 @@ ignore = [
     "A003",
     "D415"
 ]
+[tool.poetry.group.test.dependencies]
+pytest = "^8.4.1"
+pytest-asyncio = "^1.0.0"
+httpx = "^0.28.1"
+fastapi = "^0.115.14"
+
