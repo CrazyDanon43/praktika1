@@ -91,6 +91,11 @@ ignore = [
     "A003",
     "D415"
 ]
+
+[tool.mypy]
+namespace_packages = true
+explicit_package_bases = true
+files = ["src", "tests"]
 [tool.poetry.group.test.dependencies]
 pytest = "^8.4.1"
 pytest-asyncio = "^1.0.0"
