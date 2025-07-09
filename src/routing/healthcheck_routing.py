@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
-from src.models.healthcheck_models import HealthStatus
-from src.services.healthcheck_services import HealthCheckServices
+from models.healthcheck_models import HealthStatus
+from services.healthcheck_services import HealthCheckServices
 
 router = APIRouter(prefix="/health", tags=["Health"])
 service = HealthCheckServices()

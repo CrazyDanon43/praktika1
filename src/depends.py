@@ -1,4 +1,4 @@
-from src.services.healthcheck_services import HealthCheckServices
+from services.healthcheck_services import HealthCheckServices
 
 health_service = HealthCheckServices()
 

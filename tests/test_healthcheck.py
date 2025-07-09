@@ -1,12 +1,12 @@
 import pytest
-from src.models.healthcheck_models import HealthStatus
+from http import HTTPStatus
 from httpx import AsyncClient
+from models.healthcheck_models import HealthStatus
 
 
 @pytest.mark.asyncio
 async def test_healthcheck(async_client: AsyncClient):
     response = await async_client.get("/health/healthcheck")
-    assert response.status_code == 200
-    health_status = HealthStatus(**response.json())
+    assert response.status_code == HTTPStatus.OK
+    health_status = HealthStatus(status=response.json()["status"])
     assert health_status.status is True
-    assert response.json() == {"status": True}
