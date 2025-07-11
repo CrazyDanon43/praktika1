@@ -7,6 +7,7 @@ authors = [
 ]
 readme = "README.md"
 requires-python = ">=3.11"
+package-mode = false
 dependencies = [
     "fastapi>=0.115.14,<0.116.0",
     "uvicorn[standard]>=0.35.0,<0.36.0",
@@ -91,14 +92,3 @@ ignore = [
     "A003",
     "D415"
 ]
-
-[tool.mypy]
-namespace_packages = true
-explicit_package_bases = true
-files = ["src", "tests"]
-[tool.poetry.group.test.dependencies]
-pytest = "^8.4.1"
-pytest-asyncio = "^1.0.0"
-httpx = "^0.28.1"
-fastapi = "^0.115.14"
-
