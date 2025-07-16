@@ -1,4 +1,5 @@
-from src.models.healthcheck_models import HealthStatus
+from models.healthcheck_models import HealthStatus
+
 
 class HealthCheckServices:
     def get_health(self) -> HealthStatus:
